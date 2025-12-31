@@ -3,8 +3,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from "@/theme/theme";
-import Navbar from "@/components/Navbar"; // We will build this next
-import Footer from "@/components/Footer"; // We will build this next
+import Navbar from "@/components/Navbar"; 
+import Footer from "@/components/Footer"; 
 
 export const metadata: Metadata = {
   title: "AWS Cloud Club DTU",
@@ -21,7 +21,6 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            {/* CssBaseline kicksstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <Navbar />
             {children}

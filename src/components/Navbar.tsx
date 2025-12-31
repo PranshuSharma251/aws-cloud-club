@@ -14,13 +14,12 @@ export default function Navbar() {
       sx={{ 
         py: 1, 
         position: 'relative',
-        bgcolor: '#0f0518' // Match page background
+        bgcolor: '#0f0518' 
       }}
     >
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 8 } }}>
         <Toolbar disableGutters>
           
-          {/* ================= LOGO AREA ================= */}
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <CloudIcon sx={{ color: '#FF9900', fontSize: 40, mr: 1.5 }} />
             <Box>
@@ -33,7 +32,6 @@ export default function Navbar() {
             </Box>
           </Box>
 
-          {/* ================= NAVIGATION LINKS ================= */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 5, alignItems: 'center' }}>
             {navLinks.map((link) => (
               <Box 
@@ -49,7 +47,6 @@ export default function Navbar() {
                   transition: 'color 0.3s ease',
                   '&:hover': { color: '#FF9900' },
                   
-                  // ✅ "TIMED" UNDERLINE ANIMATION
                   '&::after': {
                     content: '""',
                     position: 'absolute',
@@ -58,10 +55,10 @@ export default function Navbar() {
                     bottom: '-4px',
                     left: '0',
                     backgroundColor: '#FF9900',
-                    transition: 'width 0.3s ease-in-out', // The "timed" part
+                    transition: 'width 0.3s ease-in-out',
                   },
                   '&:hover::after': {
-                    width: '100%', // Expands to full width on hover
+                    width: '100%', 
                   }
                 }}
               >
@@ -69,7 +66,6 @@ export default function Navbar() {
               </Box>
             ))}
 
-            {/* ✅ JOIN BUTTON (Matching other button animations) */}
             <Button 
               variant="contained" 
               sx={{
@@ -78,7 +74,7 @@ export default function Navbar() {
                 fontWeight: 'bold',
                 borderRadius: 2,
                 px: 3,
-                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Bouncy
+                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                 '&:hover': {
                   bgcolor: '#FFB84D',
                   transform: 'scale(1.05)',
@@ -92,17 +88,14 @@ export default function Navbar() {
         </Toolbar>
       </Container>
 
-      {/* ================= CREATIVE BOTTOM LINE ================= */}
-      {/* This isn't a border. It's a glowing gradient line. */}
       <Box sx={{
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
         height: '1px',
-        // Fades from transparent -> Purple -> transparent
         background: 'linear-gradient(90deg, transparent 0%, rgba(138, 99, 210, 0.8) 50%, transparent 100%)',
-        boxShadow: '0 0 10px rgba(138, 99, 210, 0.5)' // Purple glow
+        boxShadow: '0 0 10px rgba(138, 99, 210, 0.5)' 
       }} />
 
     </AppBar>

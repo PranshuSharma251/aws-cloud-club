@@ -13,11 +13,6 @@ export default function Home() {
       <WhatYouWillLearn/>
       <RecentSessions/>
       <JoinClub/>
-      {/* Add other sections here as you build them:
-        <LearningPath /> (The "What You'll Learn" section)
-        <RecentSessions /> (The cards with dates)
-        <CTA /> (The "Ready to start building" section)
-      */}
     </Box>
   );
 }

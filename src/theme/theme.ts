@@ -14,15 +14,15 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#FF9900', // AWS Orange
+      main: '#FF9900',
       contrastText: '#000000',
     },
     secondary: {
-      main: '#232F3E', // AWS Dark Blue/Black
+      main: '#232F3E',
     },
     background: {
-      default: '#1A0B2E', // Deep Purple Background from your image
-      paper: '#2D1B4E',   // Slightly lighter purple for cards
+      default: '#1A0B2E', 
+      paper: '#2D1B4E',   
     },
     text: {
       primary: '#ffffff',
@@ -33,7 +33,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none', // Keeps buttons from being ALL CAPS
+          textTransform: 'none', 
           borderRadius: '8px',
           fontWeight: 600,
           padding: '10px 24px',
@@ -50,8 +50,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '16px',
-          backgroundImage: 'none', // Reset default MUI gradient
-          backgroundColor: '#251536', // Card Background
+          backgroundImage: 'none', 
+          backgroundColor: '#251536', 
         },
       },
     },

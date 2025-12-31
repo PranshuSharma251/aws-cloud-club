@@ -31,7 +31,7 @@ const learnItems = [
 export default function WhatYouWillLearn() {
   return (
     <Box sx={{ 
-      py: 12, // ✅ Equal padding top & bottom (increased slightly for spacing)
+      py: 12, 
       bgcolor: '#0f0518', 
       position: 'relative', 
       overflow: 'hidden' 
@@ -108,7 +108,6 @@ export default function WhatYouWillLearn() {
             </Box>
           </Box>
 
-          {/* RIGHT SIDE: List & Button */}
           <Box sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column', gap: 4 }}>
               
               {/* List Items */}
@@ -138,7 +137,6 @@ export default function WhatYouWillLearn() {
                 </Box>
               ))}
 
-              {/* BUTTON - UPDATED HOVER EFFECT */}
               <Box sx={{ mt: 2 }}>
                 <Button 
                   variant="contained" 
@@ -153,11 +151,11 @@ export default function WhatYouWillLearn() {
                     textTransform: 'none',
                     fontSize: '1rem',
                     fontWeight: 600,
-                    transition: 'all 0.3s ease-in-out', // Smooth transition
+                    transition: 'all 0.3s ease-in-out', 
                     '&:hover': {
-                      bgcolor: '#624FA2',      // ✅ Brighter Purple
-                      transform: 'scale(1.05)', // ✅ Scales up
-                      boxShadow: '0 0 20px rgba(98, 79, 162, 0.5)' // Optional glow
+                      bgcolor: '#624FA2',      
+                      transform: 'scale(1.05)', 
+                      boxShadow: '0 0 20px rgba(98, 79, 162, 0.5)' 
                     }
                   }}
                 >

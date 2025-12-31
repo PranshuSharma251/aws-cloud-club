@@ -46,7 +46,6 @@ export default function RecentSessions() {
             </Typography>
           </Box>
 
-          {/* Cards Container */}
           <Box sx={{
             display: 'flex',
             gap: 4,
@@ -55,7 +54,6 @@ export default function RecentSessions() {
             {sessions.map((session, index) => (
                <Box key={index} sx={{ flex: 1 }}>
                   
-                  {/* CARD WRAPPER */}
                   <Box sx={{
                      bgcolor: '#13091B', 
                      borderRadius: 4,
@@ -77,10 +75,8 @@ export default function RecentSessions() {
                      }
                   }}>
                      
-                     {/* IMAGE SECTION */}
                      <Box sx={{ position: 'relative', height: 240, width: '100%' }}>
                         
-                        {/* Status Tag */}
                         <Chip
                           label={session.type}
                           size="small"
@@ -104,7 +100,6 @@ export default function RecentSessions() {
                            style={{ objectFit: 'cover' }}
                         />
                         
-                        {/* ✅ PURPLE OVERLAY (Vanishes on hover) */}
                         <Box 
                            className="image-overlay"
                            sx={{ 
@@ -113,18 +108,15 @@ export default function RecentSessions() {
                               // Purple tint color
                               bgcolor: 'rgba(75, 54, 124, 0.5)', 
                               zIndex: 1, 
-                              transition: 'opacity 0.4s ease-in-out' // Smooth fade
+                              transition: 'opacity 0.4s ease-in-out'
                            }} 
                         />
                         
-                        {/* Gradient Shadow at bottom (Always visible for text contrast) */}
                         <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #13091B 0%, transparent 60%)', zIndex: 2 }} />
                      </Box>
 
-                     {/* TEXT CONTENT */}
                      <Box sx={{ p: 3, display: 'flex', flexDirection: 'column', gap: 2, flexGrow: 1 }}>
                         
-                        {/* Date */}
                         <Stack direction="row" spacing={1} alignItems="center" sx={{ color: 'grey.500' }}>
                            <Icon icon="ph:calendar-blank-bold" width={18} />
                            <Typography variant="caption" fontWeight="bold" fontSize={13}>
@@ -142,12 +134,10 @@ export default function RecentSessions() {
                            {session.title}
                         </Typography>
 
-                        {/* Description */}
                         <Typography variant="body2" sx={{ color: 'grey.400', flexGrow: 1, lineHeight: 1.6 }}>
                            {session.desc}
                         </Typography>
 
-                        {/* Speaker Info */}
                         <Stack direction="row" spacing={1} alignItems="center" sx={{ color: '#FF9900', mt: 1 }}>
                            <Icon icon="ph:user-circle-bold" width={20} />
                            <Typography variant="caption" fontWeight="bold" fontSize={13}>
@@ -161,7 +151,6 @@ export default function RecentSessions() {
             ))}
           </Box>
 
-          {/* FOOTER BUTTON */}
           <Box sx={{ textAlign: 'center', mt: 8 }}>
             <Button
               variant="contained"
@@ -174,11 +163,11 @@ export default function RecentSessions() {
                     textTransform: 'none',
                     fontSize: '1rem',
                     fontWeight: 600,
-                    transition: 'all 0.3s ease-in-out', // Smooth transition
+                    transition: 'all 0.3s ease-in-out', 
                     '&:hover': {
                       bgcolor: '#624FA2',      // ✅ Brighter Purple
                       transform: 'scale(1.05)', // ✅ Scales up
-                      boxShadow: '0 0 20px rgba(98, 79, 162, 0.5)' // Optional glow
+                      boxShadow: '0 0 20px rgba(98, 79, 162, 0.5)' 
                     }
                   }}
               endIcon={<Icon icon="ph:arrow-right-bold" />}

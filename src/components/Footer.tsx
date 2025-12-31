@@ -23,8 +23,7 @@ export default function Footer() {
       }}
     >
       
-      {/* ================= BACKGROUND BLOBS ================= */}
-      {/* 1. Purple Blob (Top Right) */}
+
       <Box sx={{
         position: 'absolute',
         top: '-20%',
@@ -37,7 +36,7 @@ export default function Footer() {
         pointerEvents: 'none',
       }} />
       
-      {/* 2. Orange Blob (Bottom Left) */}
+
       <Box sx={{
         position: 'absolute',
         bottom: '-10%',
@@ -53,10 +52,10 @@ export default function Footer() {
 
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 10 }, position: 'relative', zIndex: 1 }}>
         
-        {/* Main Grid Content */}
+
         <Grid container spacing={8} justifyContent="space-between">
           
-          {/* Column 1: Logo & Socials */}
+
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CloudIcon sx={{ color: '#FF9900', fontSize: 40, mr: 1.5 }} />
@@ -74,7 +73,7 @@ export default function Footer() {
               Building cloud-native minds at DTU through hands-on learning, workshops, and community collaboration.
             </Typography>
 
-            {/* Social Icons - NO JUMPING, JUST COLOR FILL */}
+
             <Stack direction="row" spacing={1}>
               {[<LinkedInIcon key="li" />, <InstagramIcon key="ig" />, <TwitterIcon key="tw" />].map((icon, index) => (
                 <IconButton 
@@ -85,10 +84,10 @@ export default function Footer() {
                     border: '1px solid rgba(255,255,255,0.1)',
                     transition: 'all 0.3s ease',
                     '&:hover': { 
-                      bgcolor: '#FF9900', // Fills with Orange
-                      color: 'black',     // Icon turns black for contrast
+                      bgcolor: '#FF9900', 
+                      color: 'black',     
                       borderColor: '#FF9900',
-                      boxShadow: '0 0 15px rgba(255, 153, 0, 0.5)' // Subtle glow
+                      boxShadow: '0 0 15px rgba(255, 153, 0, 0.5)' 
                     }
                   }}
                 >
@@ -98,7 +97,6 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          {/* Column 2: Quick Links */}
           <Grid item xs={6} md={2}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Quick Links
@@ -112,10 +110,9 @@ export default function Footer() {
                   color="grey.400" 
                   sx={{ 
                     transition: 'all 0.2s ease',
-                    // NO MOVEMENT -> JUST GLOW & COLOR
                     '&:hover': { 
                       color: '#FF9900', 
-                      textShadow: '0 0 10px rgba(255, 153, 0, 0.5)' // Creative neon glow
+                      textShadow: '0 0 10px rgba(255, 153, 0, 0.5)' 
                     },
                     display: 'inline-block'
                   }}
@@ -126,7 +123,6 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          {/* Column 3: Resources */}
           <Grid item xs={6} md={2}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Resources
@@ -186,7 +182,6 @@ export default function Footer() {
 
         </Grid>
 
-        {/* Divider & Copyright */}
         <Box sx={{ 
           mt: 8, 
           pt: 3, 

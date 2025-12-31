@@ -32,30 +32,25 @@ export default function Features() {
       py: 10, 
       background: 'linear-gradient(to bottom, #0f0518 0%, #1A0B2E 100%)', 
       position: 'relative',
-      overflow: 'hidden' // ✅ Added to contain the blob blur
+      overflow: 'hidden' 
     }}>
       
-      {/* Top Border Glow */}
       <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)', zIndex: 2 }} />
-
-      {/* ✅ NEW BACKGROUND BLOB (Bottom Right) */}
       <Box sx={{
         position: 'absolute',
         bottom: '-20%',
         right: '-10%',
         width: '700px',
         height: '700px',
-        // A subtle purple/blue glow that blends with the dark background
         background: 'radial-gradient(circle, rgba(100, 50, 255, 0.12) 0%, rgba(26, 11, 46, 0) 70%)',
         filter: 'blur(100px)',
-        zIndex: 0, // Behind content
-        pointerEvents: 'none', // Ensures it doesn't interfere with clicks
+        zIndex: 0, 
+        pointerEvents: 'none', 
       }} />
 
 
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 6 }, position: 'relative', zIndex: 1 }}> 
         
-        {/* Header */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography variant="h2" fontWeight="bold" sx={{ mb: 2 }}>
             Why Join AWS Cloud Club DTU?
@@ -65,7 +60,6 @@ export default function Features() {
           </Typography>
         </Box>
 
-        {/* PARENT FLEX CONTAINER */}
         <Box sx={{ 
           display: 'flex', 
           gap: 4, 
@@ -85,7 +79,6 @@ export default function Features() {
                   borderColor: 'primary.main',
                   boxShadow: '0 10px 40px -10px rgba(255, 153, 0, 0.15)',
                   
-                  // TARGET THE CHILD ICON ON HOVER
                   '& .icon-wrapper': {
                     transform: 'scale(1.15)', 
                     boxShadow: '0 0 20px rgba(255, 153, 0, 0.4)' 
@@ -94,7 +87,6 @@ export default function Features() {
               }}>
                 <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left', height: '100%' }}>
                   
-                  {/* Icon Box */}
                   <Box 
                     className="icon-wrapper" 
                     sx={{ 
@@ -126,8 +118,6 @@ export default function Features() {
             </Box>
           ))}
         </Box>
-
-        {/* CTA Section */}
         <Box sx={{ mt: 10, textAlign: 'center' }}>
           <Button 
             variant="contained" 

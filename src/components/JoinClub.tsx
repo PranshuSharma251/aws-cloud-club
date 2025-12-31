@@ -32,15 +32,12 @@ export default function JoinClub() {
   return (
     <Box sx={{ 
       py: 12, 
-      // ✅ PUNCHY BACKGROUND: Rich Radial Gradient
-      // Starts dark (matching top) and explodes into a deep violet at the bottom
       background: 'radial-gradient(circle at 50% 100%, #2E1A47 0%, #0f0518 100%)',
       position: 'relative'
     }}>
       
       <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
         
-        {/* HEADER */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography variant="h2" fontWeight="bold" sx={{ color: 'white', mb: 1.5 }}>
             Ready to Start Building?
@@ -50,17 +47,14 @@ export default function JoinClub() {
           </Typography>
         </Box>
 
-        {/* MAIN CARD CONTAINER */}
         <Box sx={{ 
-          // ✅ REVERSE GRADIENT ON CARD
-          // Page is Bottom-Light... So Card is Top-Light to create contrast
           background: 'linear-gradient(145deg, rgba(40, 25, 60, 0.6) 0%, rgba(15, 5, 24, 0.9) 100%)',
           border: '1px solid rgba(255, 153, 0, 0.3)',
           borderRadius: 4,
           p: { xs: 4, md: 6 },
           position: 'relative',
           overflow: 'hidden',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.5)' // Deep shadow for lift
+          boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
         }}>
           
           {/* Inner Glow Blob */}
@@ -75,7 +69,6 @@ export default function JoinClub() {
             pointerEvents: 'none',
           }} />
 
-          {/* ✅ FLEX PARENT (Replaces Grid) */}
           <Box sx={{ 
             display: 'flex', 
             flexDirection: { xs: 'column', md: 'row' }, 
@@ -131,7 +124,6 @@ export default function JoinClub() {
               </Button>
             </Box>
 
-            {/* RIGHT SIDE: Stats Stack (Flex 0.8 for compact stats) */}
             <Box sx={{ flex: 0.8, width: '100%' }}>
               <Stack spacing={2.5}>
                 {stats.map((stat, index) => (
@@ -150,7 +142,6 @@ export default function JoinClub() {
                       bgcolor: '#1A0B2E' 
                     }
                   }}>
-                    {/* ✅ Icon Box with Actual Icon */}
                     <Box sx={{ 
                       minWidth: 56, 
                       height: 56, 
@@ -165,7 +156,6 @@ export default function JoinClub() {
                       <Icon icon={stat.icon} width={28} height={28} />
                     </Box>
                     
-                    {/* Text */}
                     <Box>
                       <Typography variant="h5" fontWeight="bold" sx={{ color: 'white', lineHeight: 1, mb: 0.5 }}>
                         {stat.count}

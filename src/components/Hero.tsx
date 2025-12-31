@@ -18,7 +18,6 @@ export default function Hero() {
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden', py: 5 }}>
       
-      {/* BACKGROUND GLOW BLOBS */}
       <Box sx={{
         position: 'absolute',
         top: '-10%',
@@ -41,13 +40,6 @@ export default function Hero() {
         zIndex: -1,
       }} />
 
-      {/* ✅ FIXED RESPONSIVE PADDING
-         - maxWidth="xl": Allows it to go wide on big screens.
-         - px (Padding X-axis):
-           - xs: 2 (Mobile, normal)
-           - md: 8 (Laptop, adds BIG side spacing so it doesn't touch edges)
-           - lg: 4 (Big Monitor, relaxes spacing so it looks wide again)
-      */}
       <Container 
         maxWidth="xl" 
         sx={{ px: { xs: 2, md: 10, lg: 14 } }} 
@@ -59,7 +51,6 @@ export default function Hero() {
           gap: 8 
         }}>
           
-          {/* LEFT SIDE: Text Content */}
           <Box sx={{ flex: 1, width: '100%', zIndex: 1 }}> 
             
             <Box sx={{ 
@@ -144,7 +135,6 @@ export default function Hero() {
             </Box>
           </Box>
 
-          {/* RIGHT SIDE: Image */}
           <Box sx={{ flex: 1, width: '100%', position: 'relative', mt: { xs: 4, md: -11 }, pl: { md: 1 } }}>
             <Box 
               sx={{ 
@@ -181,7 +171,6 @@ export default function Hero() {
                 priority 
               />
 
-              {/* FLOATING CARD 1: Active Members */}
               <Box sx={{ 
                 position: 'absolute', 
                 bottom: -30, 
@@ -209,7 +198,6 @@ export default function Hero() {
                  </Box>
               </Box>
 
-              {/* FLOATING CARD 2: Workshops */}
               <Box sx={{ 
                 position: 'absolute', 
                 top: -20, 
