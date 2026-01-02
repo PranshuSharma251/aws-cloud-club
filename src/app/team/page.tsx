@@ -20,7 +20,7 @@ const founders = [
     role: "Founder", 
     // ✅ Added Custom Tag
     customTag: "Current Captain",
-    image: "/images/suhan.jfif", 
+    image: "/images/sboy.jpg", 
     linkedin: "https://www.linkedin.com/in/suhanshvarshney/",
     bio: "Community builder focused on creating hands-on learning experiences for students."
   }
@@ -52,7 +52,7 @@ const vicePresidents = [
     role: "Vice President", 
     // ✅ Added Custom Tag
     customTag: "SDE Intern @ Amazon",
-    image: "/images/rohan.jfif", 
+    image: "/images/rohan.jpg", 
     linkedin: "https://www.linkedin.com/in/rohan-tomar17/",
     bio: "Leading strategic initiatives and fostering industry partnerships to bring opportunities to students."
   }
