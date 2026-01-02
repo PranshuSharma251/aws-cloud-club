@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Box,
@@ -8,10 +8,10 @@ import {
   Stack,
   IconButton,
 } from "@mui/material";
+import { Icon } from '@iconify/react';
 import CloudIcon from "@mui/icons-material/Cloud";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 // ✅ Social Media Links
@@ -48,11 +48,12 @@ export default function Footer() {
       sx={{
         bgcolor: "#0f0518",
         color: "white",
-        pt: 10,
+        pt: { xs: 6, md: 10 },
         pb: 4,
         mt: "auto",
         position: "relative",
         overflow: "hidden",
+        borderTop: '1px solid rgba(255,255,255,0.05)'
       }}
     >
       {/* Background Blobs */}
@@ -63,21 +64,8 @@ export default function Footer() {
           right: "-10%",
           width: "600px",
           height: "600px",
-          background: "radial-gradient(circle, rgba(138, 99, 210, 0.15) 0%, rgba(0,0,0,0) 70%)",
-          filter: "blur(80px)",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "-10%",
-          left: "-10%",
-          width: "500px",
-          height: "500px",
-          background: "radial-gradient(circle, rgba(255, 153, 0, 0.1) 0%, rgba(0,0,0,0) 70%)",
-          filter: "blur(80px)",
+          background: "radial-gradient(circle, rgba(138, 99, 210, 0.1) 0%, rgba(0,0,0,0) 70%)",
+          filter: "blur(100px)",
           zIndex: 0,
           pointerEvents: "none",
         }}
@@ -85,28 +73,42 @@ export default function Footer() {
 
       <Container
         maxWidth="xl"
-        sx={{ px: { xs: 2, md: 6 }, position: "relative", zIndex: 1 }}
+        sx={{ px: { xs: 3, md: 6 }, position: "relative", zIndex: 1 }}
       >
-        {/* ✅ BULLETPROOF FLEX LAYOUT (No Grids) */}
+        {/* ✅ MAIN CONTENT WRAPPER */}
         <Box sx={{ 
           display: 'flex', 
           flexWrap: 'wrap', 
-          gap: { xs: 8, md: 0 }, // Gap between rows on mobile
-          justifyContent: 'space-between' 
+          // ✅ Mobile: Tighter vertical gap (40px) | Desktop: No vertical gap
+          rowGap: { xs: 5, md: 0 }, 
+          justifyContent: 'space-between',
         }}>
           
-          {/* Column 1: Logo & Socials (Width: 100% mobile, 30% desktop) */}
-          <Box sx={{ width: { xs: '100%', md: '30%' } }}>
-            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <CloudIcon sx={{ color: "#FF9900", fontSize: 40, mr: 1.5 }} />
-              <Box>
-                <Typography variant="h6" fontWeight="bold" lineHeight={1}>
+          {/* =============================================
+              1. BRANDING (Left)
+              Mobile: 100% width
+              Desktop: 30% width (Equal weight)
+          ============================================= */}
+          <Box sx={{ 
+            width: { xs: '100%', md: '30%' }, 
+            textAlign: { xs: 'center', md: 'left' } 
+          }}>
+            <Box sx={{ 
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: { xs: 'center', md: 'flex-start' },
+              mb: 2 
+            }}>
+              <CloudIcon sx={{ color: "#FF9900", fontSize: 36, mr: 1.5 }} />
+              <Box sx={{ textAlign: 'left' }}>
+                <Typography variant="h6" fontWeight="bold" lineHeight={1} fontSize="1.1rem">
                   AWS
                 </Typography>
                 <Typography
                   variant="h6"
                   fontWeight="bold"
                   lineHeight={1}
+                  fontSize="1.1rem"
                   sx={{ color: "#FF9900" }}
                 >
                   Cloud Club <span style={{ color: "white" }}>DTU</span>
@@ -116,13 +118,23 @@ export default function Footer() {
 
             <Typography
               variant="body2"
-              sx={{ color: "grey.400", mb: 4, maxWidth: 300, lineHeight: 1.6 }}
+              sx={{ 
+                color: "grey.500", 
+                mb: 3, 
+                maxWidth: { xs: '100%', md: 300 }, 
+                fontSize: '0.9rem',
+                lineHeight: 1.6 
+              }}
             >
-              Building cloud-native minds at DTU through hands-on learning,
-              workshops, and community collaboration.
+              Building cloud-native minds at DTU through hands-on learning and community collaboration.
             </Typography>
 
-            <Stack direction="row" spacing={1}>
+            {/* ✅ ICONS SPACED OUT (spacing={2}) */}
+            <Stack 
+              direction="row" 
+              spacing={2} 
+              sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
+            >
               {socialLinks.map((social, index) => (
                 <IconButton
                   key={index}
@@ -130,16 +142,15 @@ export default function Footer() {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  size="small"
                   sx={{
-                    bgcolor: "rgba(255,255,255,0.05)",
-                    color: "white",
+                    bgcolor: "rgba(255,255,255,0.03)",
+                    color: "grey.400",
                     border: "1px solid rgba(255,255,255,0.1)",
-                    transition: "all 0.3s ease",
-                    "&:hover": {
+                    '&:hover': {
                       bgcolor: "#FF9900",
                       color: "black",
                       borderColor: "#FF9900",
-                      boxShadow: "0 0 15px rgba(255, 153, 0, 0.5)",
                     },
                   }}
                 >
@@ -149,25 +160,29 @@ export default function Footer() {
             </Stack>
           </Box>
 
-          {/* Column 2: Quick Links (Width: 50% mobile, 20% desktop) */}
-          <Box sx={{ width: { xs: '50%', md: '20%' } }}>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
-              Quick Links
+          {/* =============================================
+              2. QUICK LINKS
+              Mobile: 50% width (Side by side with Resources)
+              Desktop: 15% width (Even column)
+          ============================================= */}
+          <Box sx={{ 
+            width: { xs: '50%', md: '15%' },
+            pl: { xs: 2, md: 0 } // Slight padding on mobile for balance
+          }}>
+            <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 2.5, color: 'white', textTransform: 'uppercase', letterSpacing: 1 }}>
+              Explore
             </Typography>
-            <Stack spacing={1.5}>
+            <Stack spacing={1.2}>
               {quickLinks.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
                   underline="none"
-                  color="grey.400"
+                  color="grey.500"
                   sx={{
-                    transition: "all 0.2s ease",
-                    "&:hover": {
-                      color: "#FF9900",
-                      textShadow: "0 0 10px rgba(255, 153, 0, 0.5)",
-                    },
-                    display: "inline-block",
+                    fontSize: '0.9rem',
+                    transition: "color 0.2s",
+                    "&:hover": { color: "#FF9900" },
                   }}
                 >
                   {item.label}
@@ -176,25 +191,28 @@ export default function Footer() {
             </Stack>
           </Box>
 
-          {/* Column 3: Resources (Width: 50% mobile, 20% desktop) */}
-          <Box sx={{ width: { xs: '50%', md: '20%' } }}>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
+          {/* =============================================
+              3. RESOURCES
+              Mobile: 50% width (Side by side with Links)
+              Desktop: 15% width (Even column)
+          ============================================= */}
+          <Box sx={{ 
+            width: { xs: '50%', md: '15%' } 
+          }}>
+            <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 2.5, color: 'white', textTransform: 'uppercase', letterSpacing: 1 }}>
               Resources
             </Typography>
-            <Stack spacing={1.5}>
+            <Stack spacing={1.2}>
               {resourceLinks.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
                   underline="none"
-                  color="grey.400"
+                  color="grey.500"
                   sx={{
-                    transition: "all 0.2s ease",
-                    "&:hover": {
-                      color: "#FF9900",
-                      textShadow: "0 0 10px rgba(255, 153, 0, 0.5)",
-                    },
-                    display: "inline-block",
+                    fontSize: '0.9rem',
+                    transition: "color 0.2s",
+                    "&:hover": { color: "#FF9900" },
                   }}
                 >
                   {item.label}
@@ -203,36 +221,45 @@ export default function Footer() {
             </Stack>
           </Box>
 
-          {/* Column 4: Get In Touch (Width: 100% mobile, 25% desktop) */}
-          <Box sx={{ width: { xs: '100%', md: '25%' } }}>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
-              Get In Touch
+          {/* =============================================
+              4. CONTACT (Right)
+              Mobile: 100% width
+              Desktop: 25% width (Balanced End)
+          ============================================= */}
+          <Box sx={{ 
+            width: { xs: '100%', md: '25%' }, 
+            textAlign: { xs: 'center', md: 'left' } 
+          }}>
+            <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 2.5, color: 'white', textTransform: 'uppercase', letterSpacing: 1 }}>
+              Community
             </Typography>
-            <Stack spacing={2.5}>
-              <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
-                <EmailIcon sx={{ color: "#FF9900", fontSize: 20, mt: 0.5 }} />
-                <Typography
-                  component="a"
-                  href="mailto:aws@dtu.ac.in"
-                  variant="body2"
-                  color="grey.400"
-                  sx={{
-                    textDecoration: "none",
-                    transition: "color 0.2s",
-                    "&:hover": { color: "white" },
-                  }}
-                >
-                  aws@dtu.ac.in
+            <Stack 
+              spacing={2} 
+              alignItems={{ xs: 'center', md: 'flex-start' }}
+            >
+              <Link 
+                href="https://www.meetup.com/aws-cloud-club-at-delhi-technological-university/"
+                target="_blank"
+                underline="none"
+                sx={{ 
+                  display: "flex", 
+                  gap: 1.5, 
+                  alignItems: "center",
+                  color: 'grey.400',
+                  transition: 'all 0.2s',
+                  '&:hover': { color: '#FF0061' } 
+                }}
+              >
+                <Icon icon="logos:meetup" width={24} /> 
+                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  Join our Meetup Group
                 </Typography>
-              </Box>
-              <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
-                <LocationOnIcon
-                  sx={{ color: "#FF9900", fontSize: 20, mt: 0.5 }}
-                />
-                <Typography variant="body2" color="grey.400" lineHeight={1.6}>
+              </Link>
+
+              <Box sx={{ display: "flex", gap: 1.5, alignItems: "flex-start", textAlign: { xs: 'center', md: 'left' } }}>
+                <LocationOnIcon sx={{ color: "#FF9900", fontSize: 20, mt: 0.3 }} />
+                <Typography variant="body2" color="grey.500" lineHeight={1.5} fontSize="0.9rem">
                   Delhi Technological University
-                  <br />
-                  Shahbad Daulatpur, Bawana Road
                   <br />
                   New Delhi, India
                 </Typography>
@@ -241,7 +268,7 @@ export default function Footer() {
           </Box>
         </Box>
 
-        {/* Divider & Copyright */}
+        {/* ✅ COPYRIGHT BAR */}
         <Box
           sx={{
             mt: 8,
@@ -252,68 +279,28 @@ export default function Footer() {
             alignItems: "center",
             justifyContent: "space-between",
             gap: 2,
+            textAlign: "center"
           }}
         >
-          {/* Left */}
-          <Box
-            sx={{
-              flex: 1,
-              display: "flex",
-              justifyContent: { xs: "center", md: "flex-start" },
-            }}
-          >
-            <Typography variant="body2" color="grey.600">
-              © 2026 AWS Cloud Club DTU. All rights reserved.
-            </Typography>
-          </Box>
+          <Typography variant="caption" color="grey.600">
+            © 2026 AWS Cloud Club DTU. All rights reserved.
+          </Typography>
 
-          {/* Center */}
-          <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-            <Typography variant="body2" color="grey.600">
-              Created By{" "}
-              <Link
-                href="https://www.linkedin.com/in/pranshu-sharma-a5b71a2a0/"
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="none"
-                sx={{
-                  color: "#FF9900",
-                  fontWeight: "bold",
-                  display: "inline-block",
-                  transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  "&:hover": {
-                    color: "#FFB84D",
-                    textShadow: "0 0 20px rgba(255, 153, 0, 0.8)",
-                    transform: "scale(1.1) translateY(-1px)",
-                  },
-                }}
-              >
-                Pranshu Sharma
-              </Link>
-            </Typography>
-          </Box>
-
-          {/* Right */}
-          <Box
-            sx={{
-              flex: 1,
-              display: "flex",
-              justifyContent: { xs: "center", md: "flex-end" },
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            <Typography variant="caption" color="grey.600">
-              Supported by
-            </Typography>
-            <Typography
-              variant="body2"
-              fontWeight="bold"
-              sx={{ color: "#FF9900", letterSpacing: 0.5 }}
+          <Typography variant="caption" color="grey.600">
+            Created by{" "}
+            <Link
+              href="https://www.linkedin.com/in/pranshu-sharma-a5b71a2a0/"
+              target="_blank"
+              underline="none"
+              sx={{
+                color: "#FF9900",
+                fontWeight: "bold",
+                "&:hover": { color: "white" },
+              }}
             >
-              AWS
-            </Typography>
-          </Box>
+              Pranshu Sharma
+            </Link>
+          </Typography>
         </Box>
       </Container>
     </Box>

@@ -15,7 +15,8 @@ const learnItems = [
     icon: "ph:medal-bold",
     title: "AWS Certifications",
     desc: "Preparation guidance for AWS Cloud Practitioner, Solutions Architect, and Developer certifications."
-  },{
+  },
+  {
     icon: "ph:cloud-bold",
     title: "Core AWS Services",
     desc: "EC2, S3, RDS, Lambda, and more - learn to build scalable cloud infrastructure from scratch."
@@ -107,6 +108,7 @@ export default function WhatYouWillLearn() {
             </Box>
           </Box>
 
+          {/* RIGHT SIDE: List & Button */}
           <Box sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column', gap: 4 }}>
               
               {/* List Items */}
@@ -136,17 +138,18 @@ export default function WhatYouWillLearn() {
                 </Box>
               ))}
 
-              <Box sx={{ mt: 2 }}>
+              {/* ✅ CENTERED BUTTON */}
+              <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', width: '100%' }}>
                 <Button 
-                href='/resources'
+                  href='/resources'
                   variant="contained" 
-                  size="large"
+                  size="large" 
                   endIcon={<Icon icon="ph:arrow-right-bold" />}
                   sx={{ 
                     bgcolor: '#4B367C', 
                     color: 'white',
                     py: 1.5, 
-                    px: 4, 
+                    px: 6, 
                     borderRadius: 2,
                     textTransform: 'none',
                     fontSize: '1rem',

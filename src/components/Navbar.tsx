@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import CloudIcon from "@mui/icons-material/Cloud";
+import GroupsIcon from '@mui/icons-material/Groups'; // ✅ Icon for Team
 
 export default function Navbar() {
   const navLinks = ["Home", "Team", "Sessions", "Resources"];
@@ -58,19 +59,18 @@ export default function Navbar() {
             </Box>
           </Box>
 
-          {/* ================= NAVIGATION LINKS ================= */}
+          {/* ================= DESKTOP NAVIGATION (Hidden on Mobile) ================= */}
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", md: "flex" }, // 👈 Hidden on XS
               gap: 5,
               alignItems: "center",
             }}
           >
             {navLinks.map((link) => {
-              // ✅ DYNAMIC LINK LOGIC
               let hrefPath = "#";
               if (link === "Home") hrefPath = "/";
-              if (link === "Team") hrefPath = "/team"; // Links to the new Team page
+              if (link === "Team") hrefPath = "/team";
               if (link === "Sessions") hrefPath = "/sessions";
               if (link === "Resources") hrefPath = "/resources";
 
@@ -87,8 +87,6 @@ export default function Navbar() {
                     fontSize: "1rem",
                     transition: "color 0.3s ease",
                     "&:hover": { color: "#FF9900" },
-
-                    // "TIMED" UNDERLINE ANIMATION
                     "&::after": {
                       content: '""',
                       position: "absolute",
@@ -109,7 +107,7 @@ export default function Navbar() {
               );
             })}
 
-            {/* JOIN BUTTON */}
+            {/* JOIN BUTTON (Desktop) */}
             <Button
               href="/join"
               variant="contained"
@@ -130,6 +128,32 @@ export default function Navbar() {
               Join the Club
             </Button>
           </Box>
+
+          {/* ================= MOBILE NAVIGATION (Visible ONLY on Phone) ================= */}
+          <Box sx={{ display: { xs: "flex", md: "none" } }}> 
+            <Button
+              component="a"
+              href="/team"
+              variant="outlined"
+              startIcon={<GroupsIcon />} // ✅ Team Icon
+              sx={{
+                color: "white",
+                borderColor: "rgba(255,255,255,0.3)",
+                fontWeight: "bold",
+                textTransform: "none",
+                borderRadius: 2,
+                px: 2,
+                "&:hover": {
+                  borderColor: "#FF9900",
+                  color: "#FF9900",
+                  bgcolor: "rgba(255, 153, 0, 0.1)"
+                }
+              }}
+            >
+              Team
+            </Button>
+          </Box>
+
         </Toolbar>
       </Container>
 

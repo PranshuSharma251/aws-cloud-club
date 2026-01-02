@@ -1,22 +1,14 @@
 "use client";
 
 import { Box, Container, Typography, Button, Stack } from "@mui/material";
-import { keyframes } from "@mui/system";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import Image from "next/image";
-import LaptopMacIcon from "@mui/icons-material/LaptopMac";
-
-// Define animation here
-const float = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-`;
 
 export default function Hero() {
   return (
     <Box sx={{ position: "relative", overflow: "hidden", py: 5 }}>
+      {/* Background Blobs */}
       <Box
         sx={{
           position: "absolute",
@@ -54,6 +46,7 @@ export default function Hero() {
             gap: 8,
           }}
         >
+          {/* LEFT SIDE: Text Content */}
           <Box sx={{ flex: 1, width: "100%", zIndex: 1 }}>
             <Box
               sx={{
@@ -159,6 +152,7 @@ export default function Hero() {
             </Box>
           </Box>
 
+          {/* RIGHT SIDE: Image (Hidden on Phone) */}
           <Box
             sx={{
               flex: 1,
@@ -166,6 +160,8 @@ export default function Hero() {
               position: "relative",
               mt: { xs: 4, md: -11 },
               pl: { md: 1 },
+              // ✅ THIS LINE HIDES IT ON MOBILE:
+              display: { xs: "none", md: "block" }, 
             }}
           >
             <Box
@@ -204,6 +200,7 @@ export default function Hero() {
                 priority
               />
 
+              {/* Floating Badge */}
               <Box
                 sx={{
                   position: "absolute",
@@ -244,52 +241,6 @@ export default function Hero() {
                   </Typography>
                 </Box>
               </Box>
-
-              {/* <Box
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  right: -50,
-                  bgcolor: "rgba(30, 30, 30, 0.85)",
-                  backdropFilter: "blur(12px)",
-                  p: 2,
-                  borderRadius: 3,
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  display: { xs: "none", sm: "flex" },
-                  alignItems: "center",
-                  gap: 2,
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-                  zIndex: 2,
-                }}
-              >
-                <Box
-                  sx={{
-                    bgcolor: "rgba(100, 50, 255, 0.2)",
-                    color: "#a384ff",
-                    width: 44,
-                    height: 44,
-                    borderRadius: 2,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <LaptopMacIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    variant="h6"
-                    fontWeight="bold"
-                    lineHeight={1}
-                    sx={{ color: "white" }}
-                  >
-                    20+
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: "grey.400" }}>
-                    Workshops
-                  </Typography>
-                </Box>
-              </Box> */}
             </Box>
           </Box>
         </Box>

@@ -11,7 +11,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 // =========================================================
 // Set this to TRUE to show the form.
 // Set this to FALSE to show the "Closed" message.
-const RECRUITMENT_OPEN = false; 
+const RECRUITMENT_OPEN = true; 
 
 // ✅ PASTE YOUR GOOGLE SCRIPT WEB APP URL HERE
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyi1qst5zY3GGafs5fXD2O4hWchaUcim_V-nbzR0fZ_UEHCwjWqzDGg8RllivuZVkwo/exec";
