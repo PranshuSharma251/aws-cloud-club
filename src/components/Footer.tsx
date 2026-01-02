@@ -3,7 +3,6 @@
 import {
   Box,
   Container,
-  Grid2 as Grid, // ✅ Import as Grid2 (the new standard) or just Grid if on v6
   Typography,
   Link,
   Stack,
@@ -64,8 +63,7 @@ export default function Footer() {
           right: "-10%",
           width: "600px",
           height: "600px",
-          background:
-            "radial-gradient(circle, rgba(138, 99, 210, 0.15) 0%, rgba(0,0,0,0) 70%)",
+          background: "radial-gradient(circle, rgba(138, 99, 210, 0.15) 0%, rgba(0,0,0,0) 70%)",
           filter: "blur(80px)",
           zIndex: 0,
           pointerEvents: "none",
@@ -78,8 +76,7 @@ export default function Footer() {
           left: "-10%",
           width: "500px",
           height: "500px",
-          background:
-            "radial-gradient(circle, rgba(255, 153, 0, 0.1) 0%, rgba(0,0,0,0) 70%)",
+          background: "radial-gradient(circle, rgba(255, 153, 0, 0.1) 0%, rgba(0,0,0,0) 70%)",
           filter: "blur(80px)",
           zIndex: 0,
           pointerEvents: "none",
@@ -90,13 +87,16 @@ export default function Footer() {
         maxWidth="xl"
         sx={{ px: { xs: 2, md: 6 }, position: "relative", zIndex: 1 }}
       >
-        {/* Main Grid Content */}
-        {/* ✅ FIXED: Use container prop as usual */}
-        <Grid container spacing={8} justifyContent="space-between">
+        {/* ✅ BULLETPROOF FLEX LAYOUT (No Grids) */}
+        <Box sx={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          gap: { xs: 8, md: 0 }, // Gap between rows on mobile
+          justifyContent: 'space-between' 
+        }}>
           
-          {/* Column 1: Logo & Socials */}
-          {/* ✅ FIXED: Use 'size' instead of 'item xs={...}' */}
-          <Grid size={{ xs: 12, md: 4 }}>
+          {/* Column 1: Logo & Socials (Width: 100% mobile, 30% desktop) */}
+          <Box sx={{ width: { xs: '100%', md: '30%' } }}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <CloudIcon sx={{ color: "#FF9900", fontSize: 40, mr: 1.5 }} />
               <Box>
@@ -147,10 +147,10 @@ export default function Footer() {
                 </IconButton>
               ))}
             </Stack>
-          </Grid>
+          </Box>
 
-          {/* Column 2: Quick Links */}
-          <Grid size={{ xs: 6, md: 2 }}>
+          {/* Column 2: Quick Links (Width: 50% mobile, 20% desktop) */}
+          <Box sx={{ width: { xs: '50%', md: '20%' } }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Quick Links
             </Typography>
@@ -174,10 +174,10 @@ export default function Footer() {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Box>
 
-          {/* Column 3: Resources */}
-          <Grid size={{ xs: 6, md: 2 }}>
+          {/* Column 3: Resources (Width: 50% mobile, 20% desktop) */}
+          <Box sx={{ width: { xs: '50%', md: '20%' } }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Resources
             </Typography>
@@ -201,10 +201,10 @@ export default function Footer() {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Box>
 
-          {/* Column 4: Get In Touch */}
-          <Grid size={{ xs: 12, md: 3 }}>
+          {/* Column 4: Get In Touch (Width: 100% mobile, 25% desktop) */}
+          <Box sx={{ width: { xs: '100%', md: '25%' } }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Get In Touch
             </Typography>
@@ -238,8 +238,8 @@ export default function Footer() {
                 </Typography>
               </Box>
             </Stack>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
         {/* Divider & Copyright */}
         <Box
