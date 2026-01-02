@@ -12,17 +12,17 @@ const benefits = [
 
 const stats = [
   { 
-    count: "500+", 
+    count: "120+", 
     label: "Active Members", 
     icon: "ph:users-three-bold" 
   },
   { 
-    count: "20+", 
+    count: "3+", 
     label: "Workshops Conducted", 
     icon: "ph:chalkboard-teacher-bold" 
   },
   { 
-    count: "50+", 
+    count: "10+", 
     label: "Projects Built", 
     icon: "ph:rocket-launch-bold" 
   },
@@ -100,6 +100,7 @@ export default function JoinClub() {
 
               {/* CTA Button */}
               <Button 
+              href='/join'
                 variant="contained" 
                 size="large"
                 endIcon={<Icon icon="ph:arrow-right-bold" />}

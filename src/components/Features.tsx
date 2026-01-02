@@ -120,6 +120,7 @@ export default function Features() {
         </Box>
         <Box sx={{ mt: 10, textAlign: 'center' }}>
           <Button 
+          href='/join'
             variant="contained" 
             size="large" 
             endIcon={<Icon icon="ph:rocket-launch-bold" style={{ fontSize: '1.2rem' }} />}

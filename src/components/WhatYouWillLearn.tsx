@@ -7,6 +7,15 @@ import Image from 'next/image';
 // Data Array
 const learnItems = [
   {
+    icon: "ph:brain-bold",
+    title: "AI & Machine Learning",
+    desc: "Explore AWS SageMaker, generative AI, and ML model deployment at scale."
+  },
+  {
+    icon: "ph:medal-bold",
+    title: "AWS Certifications",
+    desc: "Preparation guidance for AWS Cloud Practitioner, Solutions Architect, and Developer certifications."
+  },{
     icon: "ph:cloud-bold",
     title: "Core AWS Services",
     desc: "EC2, S3, RDS, Lambda, and more - learn to build scalable cloud infrastructure from scratch."
@@ -16,16 +25,6 @@ const learnItems = [
     title: "DevOps & CI/CD",
     desc: "Master deployment pipelines, containerization with Docker, and infrastructure as code."
   },
-  {
-    icon: "ph:brain-bold",
-    title: "AI & Machine Learning",
-    desc: "Explore AWS SageMaker, generative AI, and ML model deployment at scale."
-  },
-  {
-    icon: "ph:medal-bold",
-    title: "AWS Certifications",
-    desc: "Preparation guidance for AWS Cloud Practitioner, Solutions Architect, and Developer certifications."
-  }
 ];
 
 export default function WhatYouWillLearn() {
@@ -139,6 +138,7 @@ export default function WhatYouWillLearn() {
 
               <Box sx={{ mt: 2 }}>
                 <Button 
+                href='/resources'
                   variant="contained" 
                   size="large"
                   endIcon={<Icon icon="ph:arrow-right-bold" />}
