@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 import {
   Box,
   Container,
-  Grid,
+  Grid2 as Grid, // ✅ Import as Grid2 (the new standard) or just Grid if on v6
   Typography,
   Link,
   Stack,
@@ -27,7 +27,7 @@ const socialLinks = [
   },
 ];
 
-// ✅ Navigation Links (Internal Pages)
+// ✅ Navigation Links
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Team", href: "/team" },
@@ -91,9 +91,12 @@ export default function Footer() {
         sx={{ px: { xs: 2, md: 6 }, position: "relative", zIndex: 1 }}
       >
         {/* Main Grid Content */}
+        {/* ✅ FIXED: Use container prop as usual */}
         <Grid container spacing={8} justifyContent="space-between">
+          
           {/* Column 1: Logo & Socials */}
-          <Grid item xs={12} md={4}>
+          {/* ✅ FIXED: Use 'size' instead of 'item xs={...}' */}
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <CloudIcon sx={{ color: "#FF9900", fontSize: 40, mr: 1.5 }} />
               <Box>
@@ -119,14 +122,13 @@ export default function Footer() {
               workshops, and community collaboration.
             </Typography>
 
-            {/* Social Icons */}
             <Stack direction="row" spacing={1}>
               {socialLinks.map((social, index) => (
                 <IconButton
                   key={index}
                   component="a"
                   href={social.link}
-                  target="_blank" // Opens in new tab
+                  target="_blank"
                   rel="noopener noreferrer"
                   sx={{
                     bgcolor: "rgba(255,255,255,0.05)",
@@ -148,7 +150,7 @@ export default function Footer() {
           </Grid>
 
           {/* Column 2: Quick Links */}
-          <Grid item xs={6} md={2}>
+          <Grid size={{ xs: 6, md: 2 }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Quick Links
             </Typography>
@@ -175,7 +177,7 @@ export default function Footer() {
           </Grid>
 
           {/* Column 3: Resources */}
-          <Grid item xs={6} md={2}>
+          <Grid size={{ xs: 6, md: 2 }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Resources
             </Typography>
@@ -202,7 +204,7 @@ export default function Footer() {
           </Grid>
 
           {/* Column 4: Get In Touch */}
-          <Grid item xs={12} md={3}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
               Get In Touch
             </Typography>
@@ -252,7 +254,7 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          {/* 1. LEFT: Copyright */}
+          {/* Left */}
           <Box
             sx={{
               flex: 1,
@@ -265,7 +267,7 @@ export default function Footer() {
             </Typography>
           </Box>
 
-          {/* 2. CENTER: Created By (Interactive Link) */}
+          {/* Center */}
           <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <Typography variant="body2" color="grey.600">
               Created By{" "}
@@ -281,8 +283,8 @@ export default function Footer() {
                   transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   "&:hover": {
                     color: "#FFB84D",
-                    textShadow: "0 0 20px rgba(255, 153, 0, 0.8)", // Neon Glow
-                    transform: "scale(1.01) ",     // Pop effect
+                    textShadow: "0 0 20px rgba(255, 153, 0, 0.8)",
+                    transform: "scale(1.1) translateY(-1px)",
                   },
                 }}
               >
@@ -291,7 +293,7 @@ export default function Footer() {
             </Typography>
           </Box>
 
-          {/* 3. RIGHT: Supported By */}
+          {/* Right */}
           <Box
             sx={{
               flex: 1,
