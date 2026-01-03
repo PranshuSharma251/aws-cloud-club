@@ -23,6 +23,15 @@ const founders = [
     image: "/images/sboy.jpg", 
     linkedin: "https://www.linkedin.com/in/suhanshvarshney/",
     bio: "Community builder focused on creating hands-on learning experiences for students."
+  },
+    { 
+    name: "Utkarsh Singh", 
+    role: "Founder", 
+    // ✅ Added Custom Tag
+    customTag: "Captain",
+    image: "/images/utk.jpeg", 
+    linkedin: "",
+    bio: "Visionary founder driving cloud innovation at DTU. Architecting the future of tech communities through strategic leadership and excellence."
   }
 ];
 

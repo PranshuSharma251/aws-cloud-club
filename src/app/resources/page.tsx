@@ -56,6 +56,16 @@ const resourcesData = [
     desc: "The official technical documentation for Amazon EC2 instances, covering launch, security, and networking.",
     link: "https://docs.aws.amazon.com/pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf"
   },
+    {
+    id: 6,
+    title: "Shivam Gautam - AWS + Terraform",
+    category: "Roadmaps", // or "Documents" depending on your pref
+    type: "Link",
+    size: "Web",
+    date: "Blog Series",
+    desc: "Master Infrastructure as Code (IaC) with this deep-dive blog series on AWS and Terraform by our club founder.",
+    link: "https://shivamgautam.hashnode.dev/"
+  }
 ];
 
 // Updated Categories based on your data

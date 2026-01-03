@@ -38,7 +38,6 @@ const quickLinks = [
 const resourceLinks = [
   { label: "Workshops", href: "/sessions" },
   { label: "Study Materials", href: "/resources" },
-  { label: "Contact Support", href: "mailto:aws@dtu.ac.in" },
 ];
 
 export default function Footer() {
