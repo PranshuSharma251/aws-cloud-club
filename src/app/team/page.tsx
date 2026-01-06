@@ -86,15 +86,16 @@ const seniorCouncil = [
 const juniorCouncil = [
   // --- TECH ---
   { name: "Pranshu Sharma", role: "Technical Co-Head", category: "tech" },
-
+  { name: "Utkarsh Goyal", role: "Technical Co-Head", category: "tech" },
   // --- CREATIVE ---
   { name: "Sanskriti Tripathi", role: "Creative Co-Head", category: "creative" },
-  { name: "Karan Balurguna", role: "Creative Co-Head", category: "creative" },
+  { name: "Karan Bahuguna", role: "Creative Co-Head", category: "creative" },
+   { name: "Jatin", role: "Creative Co-Head", category: "creative" },
+    { name: "Aastha", role: "Creative Co-Head", category: "creative" },
 
   // --- MANAGEMENT ---
   { name: "Vishu Goyal", role: "Management Co-Head", category: "management" },
   { name: "Suyash", role: "Management Co-Head", category: "management" },
-  { name: "Utkarsh Goyal", role: "Technical Co-Head", category: "management" },
 ];
 
 const getRoleStyle = (category: string) => {
