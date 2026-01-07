@@ -96,6 +96,7 @@ const juniorCouncil = [
   // --- MANAGEMENT ---
   { name: "Vishu Goyal", role: "Management Co-Head", category: "management" },
   { name: "Suyash", role: "Management Co-Head", category: "management" },
+  { name: "Saket Singh", role: "Management Co-Head", category: "management" },
 ];
 
 const getRoleStyle = (category: string) => {
