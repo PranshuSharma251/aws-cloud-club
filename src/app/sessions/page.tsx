@@ -14,7 +14,7 @@ const sessionsData = [
     id: 0, // Unique ID
     image: "/images/ai-adda.png", // ⚠️ Ensure you have an image with this name in public/images/
     type: "Online",
-    date: "Coming Soon", // 👈 Handles "To be announced" logic
+    date: "9:00 PM, January 30, 2026", // 👈 Handles "To be announced" logic
     title: "AWS Cloud Club × AI Adda: AI & Infrastructure",
     shortDesc: "Expert-led session on AI-driven infrastructure, cybersecurity challenges, and IT-OT convergence.",
     speaker: "Industry Expert (20+ Years Exp)",
