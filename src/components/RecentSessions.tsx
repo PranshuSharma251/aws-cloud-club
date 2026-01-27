@@ -42,7 +42,7 @@ const sessions = [
     longDesc: "Kickstart your cloud journey with this exclusive orientation led by our Club Captain. Discover the mission of AWS Cloud Club DTU, explore our upcoming roadmap, and grasp the fundamentals of cloud computing. This session is your gateway to hands-on learning, community networking, and future innovation.",
     location: "AB3-114",
     link: "https://youtube.com"
-  }
+  },
 ];
 
 export default function RecentSessions() {

@@ -9,6 +9,19 @@ import Image from 'next/image';
 // 1. DATA
 // ==========================================
 const sessionsData = [
+  // ✅ NEW EVENT ADDED HERE
+  {
+    id: 0, // Unique ID
+    image: "/images/ai-adda.png", // ⚠️ Ensure you have an image with this name in public/images/
+    type: "Online",
+    date: "Coming Soon", // 👈 Handles "To be announced" logic
+    title: "AWS Cloud Club × AI Adda: AI & Infrastructure",
+    shortDesc: "Expert-led session on AI-driven infrastructure, cybersecurity challenges, and IT-OT convergence.",
+    speaker: "Industry Expert (20+ Years Exp)",
+    longDesc: "We’re excited to announce an expert-led online session on AI & Infrastructure in collaboration with AI Adda. This session features a senior industry expert with 20+ years of experience in building and securing large-scale IT & OT infrastructures across critical industries such as power, manufacturing, and telecom. You will learn about AI in modern cloud infrastructure, cybersecurity challenges in real-world systems, and the future of IT–OT convergence.",
+    location: "Online",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSebfJ3WgZb4QTCr8zOvbWQ69u1RLj0rExVBoFQTydDwL_euhA/viewform?usp=publish-editor" // 👈 PASTE YOUR GOOGLE FORM LINK HERE
+  },
   {
     id: 1,
     image: "/images/private-cloud.jpg", 
@@ -72,19 +85,41 @@ export default function SessionsPage() {
   const filteredSessions = useMemo(() => {
     const now = new Date();
     return sessionsData.filter(session => {
-      const sessionDate = new Date(session.date);
+      // ✅ Handle "Coming Soon" so it doesn't break date logic
+      let sessionDate = new Date(session.date);
+      if (session.date === "Coming Soon") {
+          // Treat as far future date so it shows up in "Upcoming"
+          sessionDate = new Date(8640000000000000); 
+      }
+
       const typeMatch = filterType === 'All' || session.type === filterType;
       let timeMatch = true;
+      
       if (filterTime === 'Upcoming') timeMatch = sessionDate >= now;
       else if (filterTime === 'Past') timeMatch = sessionDate < now;
+      
       return typeMatch && timeMatch;
     });
   }, [filterType, filterTime]);
 
+  // ✅ UPDATED BUTTON LOGIC
   const getSessionAction = (session: any) => {
     if (!session) return null;
+    
+    // 1. Check for Registration / Google Forms / Coming Soon
+    if ((session.link && session.link.includes("forms.google")) || session.date === "Coming Soon") {
+        return { 
+            label: "Register Now", 
+            icon: "ph:note-pencil-bold", 
+            color: "#FF9900", 
+            text: "black", 
+            border: "none" 
+        };
+    }
+
     const isPast = new Date(session.date) < new Date();
     if (session.type === 'Offline') return null;
+    
     if (isPast) {
       return { label: "Watch Recording", icon: "ph:play-circle-bold", color: "#1A0B2E", text: "#FF9900", border: "#FF9900" };
     } else {
@@ -92,7 +127,7 @@ export default function SessionsPage() {
     }
   };
 
-  // Custom Icon for Dropdown (Replaces the boring triangle)
+  // Custom Icon for Dropdown
   const CustomSelectIcon = (props: any) => (
     <Box {...props} sx={{ ...props.sx, pointerEvents: 'none', display: 'flex', alignItems: 'center', color: '#FF9900' }}>
       <Icon icon="ph:caret-down-bold" width={16} />
@@ -124,10 +159,10 @@ export default function SessionsPage() {
           </Typography>
         </Box>
 
-        {/* ================= UPDATED SLEEK FILTER BAR ================= */}
+        {/* FILTER BAR */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
           <Box sx={{ 
-            bgcolor: 'rgba(255, 255, 255, 0.02)', // Ultra subtle
+            bgcolor: 'rgba(255, 255, 255, 0.02)', 
             border: '1px solid rgba(255, 255, 255, 0.08)',
             borderRadius: 50,
             p: '8px 24px',
@@ -151,8 +186,8 @@ export default function SessionsPage() {
                     color: 'white', 
                     fontSize: '0.95rem',
                     fontWeight: 500,
-                    '&:hover': { color: '#FF9900' }, // Glows orange on hover
-                    '& .MuiSelect-select': { py: 0.5, pr: '24px !important' } // Fix padding for custom icon
+                    '&:hover': { color: '#FF9900' }, 
+                    '& .MuiSelect-select': { py: 0.5, pr: '24px !important' } 
                   }}
                   MenuProps={{
                     PaperProps: {
@@ -259,7 +294,9 @@ export default function SessionsPage() {
             borderRadius: 4,
             boxShadow: '0 0 80px rgba(138, 99, 210, 0.2)',
             outline: 'none',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            maxHeight: '90vh', // ✅ Added scroll support for small screens
+            overflowY: 'auto'
           }}>
             {selectedSession && (
               <>
@@ -303,13 +340,15 @@ export default function SessionsPage() {
                             <Typography variant="body1" color="white" fontWeight="bold" lineHeight={1}>{selectedSession.speaker}</Typography>
                         </Box>
                     </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Icon icon="ph:map-pin-bold" width={24} color="#8A63D2" />
-                        <Box>
-                            <Typography variant="caption" color="grey.500" sx={{ textTransform: 'uppercase' }}>Location</Typography>
-                            <Typography variant="body1" color="white" fontWeight="bold" lineHeight={1}>{selectedSession.location}</Typography>
+                    {selectedSession.location !== "Online" && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <Icon icon="ph:map-pin-bold" width={24} color="#8A63D2" />
+                            <Box>
+                                <Typography variant="caption" color="grey.500" sx={{ textTransform: 'uppercase' }}>Location</Typography>
+                                <Typography variant="body1" color="white" fontWeight="bold" lineHeight={1}>{selectedSession.location}</Typography>
+                            </Box>
                         </Box>
-                    </Box>
+                    )}
                   </Stack>
 
                   <Typography variant="body2" color="grey.400" sx={{ lineHeight: 1.6, mb: 4 }}>
@@ -407,7 +446,15 @@ const SessionCard = ({ session, onClick }: { session: any, onClick: () => void }
          {session.title}
       </Typography>
 
-      <Typography variant="body2" sx={{ color: 'grey.400', flexGrow: 1, lineHeight: 1.6 }}>
+      <Typography variant="body2" sx={{ 
+          color: 'grey.400', 
+          flexGrow: 1, 
+          lineHeight: 1.6,
+          display: '-webkit-box',
+          WebkitLineClamp: 3,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
+      }}>
          {session.shortDesc}
       </Typography>
 
