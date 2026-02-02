@@ -65,6 +65,16 @@ const resourcesData = [
     date: "Blog Series",
     desc: "Master Infrastructure as Code (IaC) with this deep-dive blog series on AWS and Terraform by our club founder.",
     link: "https://shivamgautam.hashnode.dev/"
+  },
+    {
+    id: 7,
+    title: "AI and Infrastructure",
+    category: "Documents",
+    type: "PPTX",
+    size: "1.1 MB",
+    date: "Feb 1, 2026",
+    desc: "Standard AI in infrastructure patterns for building resilient cloud applications.",
+    link: "/downloads/DTU.pptx" // ⚠️ Placeholder for your 3rd upload
   }
 ];
 
@@ -180,10 +190,11 @@ export default function ResourcesPage() {
 const ResourceCard = ({ resource }: { resource: any }) => {
   
   // ✅ LOGIC: Files (PDF/ZIP) get "Download", Links get "Open Link"
-  const isDownloadable = resource.type === 'PDF' || resource.type === 'ZIP';
+  const isDownloadable = resource.type === 'PDF' || resource.type === 'ZIP' ||resource.type === 'PPTX' ;
   
   const getIcon = (type: string) => {
     switch (type) {
+        case 'PPTX': return "bi:filetype-pptx";
         case 'ZIP': return "ph:file-zip-bold";
         case 'PDF': return "ph:file-pdf-bold";
         case 'Link': return "ph:link-bold";
